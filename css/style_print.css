@@ -1,14 +1,12 @@
 @font-face {
-    font-family: Pier;
-    src: url("../fonts/pier.otf");
+    font-family: Helvetica;
 }
 
 body {
-    font-family: Pier, sans-serif;
+    font-family: Helvetica;
 	width: 980px;
 	margin: auto;
-    background-image: url("../images/cool-background.png");
-    background-repeat: repeat;
+    background-color: white;
 }
 
 b {
@@ -34,6 +32,7 @@ b {
 /**************************************************************************/
 
 #menu {
+  	display: none !important;
     margin-left: auto;
     margin-right: auto;
     margin-top: -15px;
@@ -120,12 +119,13 @@ b {
 /**************************************************************************/
 
 #main #content {
-    width: 78%;
-    float: right;
+    width: 100%;
+
     clear: both;
 }
 
 #main #content #events{
+  	display: none !important;
   border-collapse: collapse;
   width: 100%;
   text-align: center;
@@ -196,8 +196,9 @@ filter: brightness(70%);
 /* ASIDE ******************************************************************/
 /**************************************************************************/
 #main aside {
+  	display: none !important;
     padding-top: 5px;
-    width: 22%;
+    width: 0%;
     float: left;
     background-color: #d3dade;
     background: rgba(211, 218, 222, 0.4);
@@ -290,7 +291,7 @@ text-decoration: none;
 /**************************************************************************/
 
 #main #evento {
-    width: 78%;
+    width: 100%;
     float: right;
     clear: both;
 }
@@ -300,7 +301,7 @@ text-decoration: none;
     margin-top: -5px;
   margin-left: 10px;
   font-size: 40px;
-  color: #004E7C;
+    color: black;
 
 }
 #main #evento h3{
@@ -325,7 +326,7 @@ text-decoration: none;
   float:right;
   margin-left: 7px;
   font-size: 10px;
-  color: #333333;
+    color: black;
 }
 #main #evento #imagen1 img{
   width: 370px;
@@ -334,7 +335,7 @@ text-decoration: none;
 #main #evento #imagen1 p{
   font-size: 11px;
   text-align: left
-  color: #333333;
+    color: black;
   margin-top: -3px;
 }
 #main #evento #imagen2{
@@ -352,7 +353,7 @@ text-decoration: none;
 #main #evento #imagen2 p{
   font-size: 11px;
   text-align: left
-  color: #333333;
+    color: black;
   margin-top: 1px;
 }
 /**************************************************************************/
@@ -363,14 +364,14 @@ footer {
     margin: 20px 20px;
     padding: 10px;
     clear: both;
-    color: #333333;
+    color: black;
 }
 
 footer h1 {
     font-variant: small-caps;
     font-weight: bolder;
     font-size: 20px;
-    color: #004E7C;
+
     border-bottom: 2px solid #333333;
     margin-bottom: 10px;
 }
@@ -383,11 +384,11 @@ footer > #contacto > ul {
 footer > #contacto > ul > li {
     margin: 5px;
     font-size: 14px;
-    color: #333333;
+
 }
 
 footer > #contacto > ul > li a {
-    color: #333333;
+
 }
 
 footer > #contacto > ul i {
