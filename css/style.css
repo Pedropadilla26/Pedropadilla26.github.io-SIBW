@@ -81,13 +81,16 @@ b {
     background-color: #006dad;
     color: #FFFFFF;
       transition: ease .3s;
+
 }
 
 #menu > ul li.active > a {
     background-color: #004E7C;
     color: #FFFFFF;
-    cursor: default;
+        cursor: pointer
 }
+
+
 
 #menu > ul li > a.with-sub {
     cursor: pointer
@@ -100,8 +103,8 @@ b {
 
 #main {
     margin-top: 20px;
-    margin-right: 30px;
     margin-left: 29px;
+    margin-right: 30px;
     margin-bottom: 20px;
     border: solid 0px #ddd;
     display: table;
@@ -109,7 +112,7 @@ b {
     background: rgba(255, 255, 255, 0.0);
     color: #333333;
     font-size: 14px;
-    width: 980px;
+    width: 935px;
 }
 
 /**************************************************************************/
@@ -206,7 +209,7 @@ filter: brightness(70%);
 }
 
 
-#main aside #comprar-tickets, #main aside #redes-sociales, #main aside #enlaces {
+#main aside #comprar-tickets, #main aside #redes-sociales, #main aside #enlaces, #main aside #imprimir {
     padding-left: 5px;
 }
 
@@ -265,6 +268,62 @@ filter: brightness(70%);
     color: #FFFFFF;
     background: #333333;
     background: rgba(0,0,0,0.75);
+}
+
+#main aside #imprimir{
+  color: #004E7C;
+}
+
+/**************************************************************************/
+/* EVENTO *****************************************************************/
+/**************************************************************************/
+
+#main #evento {
+    width: 78%;
+    float: right;
+    clear: both;
+}
+
+#main #evento h2{
+    font-weight: bold;
+    margin-top: -5px;
+  margin-left: 10px;
+  font-size: 40px;
+  color: #004E7C;
+
+}
+#main #evento h3{
+  margin-left: 10px;
+    margin-top: -25px;
+  font-size: 22px;
+
+}
+#main #evento h4{
+  margin-left: 10px;
+  margin-top: -20px;
+  font-size: 20px;
+}
+#main #evento p{
+  margin-left: 10px;
+  font-size: 15px;
+  margin-right: 50px;
+}
+#main #evento img{
+  width: 370px;
+  height: 200px;
+  display: inline-block;
+  float:right;
+  margin-left: 7px;
+
+}
+#main #evento #imagen2{
+  width: 370px;
+  height: 200px;
+  display: block;
+margin-left: auto;
+margin-right: auto;
+
+
 }
 
 /**************************************************************************/
