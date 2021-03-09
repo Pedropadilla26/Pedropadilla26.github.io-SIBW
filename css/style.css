@@ -42,7 +42,7 @@ b {
 
 #menu > ul {
     list-style: none outside none;
-  
+
     padding: 0px;
     background-color: #FFFFFF;
     background: rgba(255, 255, 255, 0);
@@ -109,7 +109,7 @@ b {
     background: rgba(255, 255, 255, 0.0);
     color: #333333;
     font-size: 14px;
-    width: 920px;
+    width: 980px;
 }
 
 /**************************************************************************/
@@ -117,8 +117,7 @@ b {
 /**************************************************************************/
 
 #main #content {
-    padding-top: 10px;
-    width: 75%;
+    width: 78%;
     float: right;
     clear: both;
 }
@@ -130,38 +129,40 @@ b {
 }
 
 #events td {
-  padding: 00px 0;
   border-radius: 5px;
-
 
 }
 
 #events td span{
   position: relative;
-            top: 100px;
+            top: 125px;
             background-position: center center;
             color: #FFFFFF  ;
             font-size: 16px;
             background: rgba(0, 0, 0, 0.05);
              border-radius: 5px;
+
              z-index:3;
 }
 
 #events td img {
   width: 100px;
-  height: 100px;
+  height: 125px;
   display: block;
   margin-left: auto;
  margin-right: auto;
- width: 60%;
- border-radius: 6px;
+ width: 85%;
+ border-radius: 10px;
  z-index:2;
-
+  transform: scale(1.1);
 
 }
+#events a { color: inherit; }
 #events td img:hover {
   transition: ease .3s;
 filter: brightness(70%);
+  background: rgba(255, 255, 255,1);
+
 
 }
 #events td:hover {
@@ -169,8 +170,8 @@ filter: brightness(70%);
   background: rgba(255, 255, 255, 0.0);
   cursor: pointer;
   transition: transform .3s;
-  transform: scale(1.4);
-
+  transform: scale(1.1);
+  z-index:1;
 
 }
 
@@ -190,7 +191,7 @@ filter: brightness(70%);
 /**************************************************************************/
 #main aside {
     padding-top: 5px;
-    width: 25%;
+    width: 22%;
     float: left;
     background-color: #d3dade;
     background: rgba(211, 218, 222, 0.4);
