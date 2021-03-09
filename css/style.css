@@ -42,10 +42,10 @@ b {
 
 #menu > ul {
     list-style: none outside none;
-    margin: 0px;
+  
     padding: 0px;
     background-color: #FFFFFF;
-    border-bottom: 5px solid #333333;
+    background: rgba(255, 255, 255, 0);
     float: left;
     margin-left: 1%;
     margin-right: 1%;
@@ -68,21 +68,23 @@ b {
 }
 
 #menu > ul > li > a {
-    color: #333333;
+    color: #004E7C;
     display: block;
     font-size: 20px;
     line-height: 49px;
     padding: 0 15px;
     text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.25);
 }
 
 #menu > ul > a:hover, #menu > ul > li:hover > a {
-    background-color: #004E7C;
+    background-color: #006dad;
     color: #FFFFFF;
+      transition: ease .3s;
 }
 
 #menu > ul li.active > a {
-    background-color: #333333;
+    background-color: #004E7C;
     color: #FFFFFF;
     cursor: default;
 }
@@ -152,7 +154,7 @@ b {
   margin-left: auto;
  margin-right: auto;
  width: 60%;
- border-radius: 5px;
+ border-radius: 6px;
  z-index:2;
 
 
@@ -191,6 +193,7 @@ filter: brightness(70%);
     width: 25%;
     float: left;
     background-color: #d3dade;
+    background: rgba(211, 218, 222, 0.4);
 }
 
 #main aside h1 {
