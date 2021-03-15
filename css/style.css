@@ -4,7 +4,7 @@
 
 body {
 font-family: Tahoma, sans-serif;
-	width: 980px;
+	width: 1080px;
 	margin: auto;
     background-image: url("../images/cool-background.png");
     background-repeat: repeat;
@@ -25,7 +25,7 @@ b {
 }
 
 #cabecera > img {
-    width: 922px;
+    width: 1022px;
 }
 
 /**************************************************************************/
@@ -111,7 +111,7 @@ b {
     background: rgba(255, 255, 255, 0.0);
     color: #333333;
     font-size: 14px;
-    width: 935px;
+    width: 1035px;
 }
 
 /**************************************************************************/
