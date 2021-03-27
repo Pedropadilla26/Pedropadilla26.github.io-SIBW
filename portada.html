@@ -42,7 +42,7 @@
                     <input type="text" id="email" name="email" placeholder="harrypotter@hogwarts.com"><br><br>
                     </div>
                     <label for="comentario">Texto:</label><br>
-                    <textarea id="comentario" name="comentario" rows="4" cols="50" placeholder="Mi campeón favorito, sin duda alguna Anivia, la criofenix. No tendrá mucho ataque, no tendrá mucha defensa... pero me encanta. Es muy difícil de controlar, sobre todo la Q, porque tienes que [...]"></textarea>
+                    <textarea id="comentario" name="comentario" rows="4" cols="50" onkeypress="revisarComentario()" placeholder="Mi campeón favorito, sin duda alguna Anivia, la criofenix. No tendrá mucho ataque, no tendrá mucha defensa... pero me encanta. Es muy difícil de controlar, sobre todo la Q, porque tienes que [...]"></textarea>
                     <input type="submit" id="submit" value="Enviar" onsubmit="enviarComentario()">
                 </form> 
             </div>

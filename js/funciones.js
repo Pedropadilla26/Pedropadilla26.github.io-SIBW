@@ -4,7 +4,7 @@ var oculto = true;
 
 
 /* Array de palabras prohibidas */
-var bad_words = /profesor|maestro|caca|culo|sevilla|maquina|covid|coronavirus|puto|puta|mierda|cabron/gi;
+var bad_words = /profesor|maestro|caca|culo|covid|coronavirus|puto|puta|mierda|cabron/gi;
 
 
 /* Muestra u oculta el desplegable de comentarios */
@@ -36,6 +36,7 @@ function comprobarDate(date){
  * @return {Boolean} False
  */
 function enviarComentario(){
+  alert("vaya");
   var nombre     = document.getElementById("nombre").value;
   var comentario = document.getElementById("comentario").value;
   var email      = document.getElementById("email").value;
@@ -47,7 +48,7 @@ function enviarComentario(){
   var minutos    = comprobarDate(date.getMinutes());
   var hora       = horas + ":" + minutos;
   date           = fecha + " - " + hora;
-  alert("vaya");
+
   // Comprueba si los campos están completados
   if ( !(nombre==="" || comentario==="" || email==="" ))
     crearNuevoComentario(date, nombre, comentario);
@@ -107,4 +108,4 @@ function revisarComentario(){
 
 document.getElementById("mi_boton").addEventListener("click", mostrarComentarios);
 document.getElementById("comentario").addEventListener("change", revisarComentario);
-/*document.getElementById("submit").addEventListener("submit", enviarComentario);*/
+document.getElementById("submit").addEventListener("submit", enviarComentario);
