@@ -112,6 +112,7 @@ b {
     color: #333333;
     font-size: 14px;
     width: 1035px;
+    z-index:2;
 }
 
 /**************************************************************************/
@@ -192,6 +193,76 @@ filter: brightness(70%);
 
 
 /**************************************************************************/
+/* DESPLEGABLE COMENTARIOS ************************************************/
+/**************************************************************************/
+#contenedor-desplegable{
+  color: #004E7C;
+  padding-left: 1060px;
+  padding-top: 15px;
+  z-index:1;
+  position: absolute;
+  
+}
+#contenedor-desplegable #mi_boton{
+ 
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+
+  color: #004E7C;
+  display: block;
+  font-size: 20px;
+  line-height: 49px;
+  padding: 0 15px;
+  text-transform: uppercase;
+
+  background-color: #d3dade;
+  background: rgba(255,255,255,0.5);
+}
+ #contenedor-desplegable #mi_boton:hover{
+  background-color: #006dad;
+  color: #FFFFFF;
+    transition: ease .3s;
+}
+
+#contenedor-desplegable #desplegable {
+  display: none; /* Esto se pone por defecto oculto, en cuanto se le de al boton cambia*/
+  font-size: 12px;
+  text-align: left;
+  background-color: #d3dade;
+  background: rgba(255,255,255,0.5);
+  transition:  2.3s ease;
+  color: black;
+  padding-left: 5px;
+
+}
+
+#contenedor-desplegable #desplegable #autor{
+  padding-top: 5px;
+  color: #004E7C;
+  font-size: 14px;
+}
+
+#contenedor-desplegable #desplegable #fecha{
+  font-size: 12px;
+  color: #666666;
+  margin-top: -30px;
+  float: right;
+  margin-right: 12px;
+}
+
+#contenedor-desplegable #desplegable #form{
+  margin-top: 400px;
+}
+
+#contenedor-desplegable #desplegable #contenedor-email{
+  margin-top: -36px;
+  margin-left: 180px;
+}
+
+
+
+/**************************************************************************/
 /* ASIDE ******************************************************************/
 /**************************************************************************/
 #main aside {
@@ -203,7 +274,7 @@ filter: brightness(70%);
 }
 
 #main aside h1 {
-    text-align: middle
+    text-align: middle;
     padding-left: 10px;
     padding-top: 10px;
     font-size: 18px;
