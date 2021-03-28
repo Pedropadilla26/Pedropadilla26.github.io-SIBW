@@ -6,6 +6,7 @@
         <link rel="shortcut icon" type="image/x-icon" href="images/iconorayito.ico" />
 	<script src="https://use.fontawesome.com/5aee53bc5a.js"></script>
         <link rel="stylesheet" type="text/css" href="css/style.css"/>
+        <script defer src="js/funciones.js"></script> 
     </head>
     <body>
         <header id="cabecera">
@@ -18,6 +19,36 @@
                 <li><a href="patrocinadores.html">Patrocinadores</a></li>
             </ul>
         </nav>
+        <div id= "contenedor-desplegable">
+            <button id="mi_boton"><i class="fa fa-comment"></i> Comentarios</button>
+            <div id="desplegable">
+                <div id="contenedor-comentarios">
+                    <div id="contenedor-comentario">
+                        <h3 id="autor">Pepito Perez</h3>
+                        <h3 id="fecha">25/03/2021</h3>
+                        <p> mucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho texto </p>
+                    </div>
+                    <div id="contenedor-comentario">
+                        <h3 id="autor">Arcadio Buendia</h3>
+                        <h3 id="fecha">26/03/2021</h3>
+                        <p> mucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho textomucho texto</p>
+                    </div>
+                </div>
+
+                <form onsubmit="return false">
+                    <h2>Redactar <i class="fa fa-edit"></i></h2>
+                    <label for="nombre">Nombre:</label><br>
+                    <input type="text" id="nombre" name="nombre" placeholder="Harry Potter"><br>
+                    <div id=contenedor-email>
+                    <label for="email">E-mail:</label><br>
+                    <input type="text" id="email" name="email" placeholder="harrypotter@hogwarts.com"><br><br>
+                    </div>
+                    <label for="comentario">Texto:</label><br>
+                    <textarea id="comentario" name="comentario" rows="4" cols="50" onkeypress="revisarComentario()" placeholder="Mi campeón favorito, sin duda alguna Anivia, la criofenix. No tendrá mucho ataque, no tendrá mucha defensa... pero me encanta. Es muy difícil de controlar, sobre todo la Q, porque tienes que [...]"></textarea>
+                    <input type="submit" id="submit" value="Enviar" onsubmit="return enviarComentario()">
+                </form> 
+            </div>
+        </div>
         <div id="main">
             <div id="evento">
                   <h2> Gira Fuego</h2>

@@ -20,7 +20,7 @@ function mostrarComentarios(){
   oculto = !oculto;
 }
 
-
+//Por si es menor que el dia mes o año 10. Ej: mes 3, se formatea a 03
 function comprobarDate(date){
   var format_date = date;
   if(date<10){
@@ -30,73 +30,79 @@ function comprobarDate(date){
   return format_date;
 }
 
-/**
- * Recupera la información introducida por el usuario.
- *
- * @return {Boolean} False
- */
+/* Recoge la info enviada por el usuario y comprueba los datos antes de crear el comentario */
 function enviarComentario(){
-  alert("vaya");
   var nombre     = document.getElementById("nombre").value;
   var comentario = document.getElementById("comentario").value;
   var email      = document.getElementById("email").value;
   var date       = new Date();
   var dia        = comprobarDate(date.getDate());
-  var mes        = comprobarDate(date.getMonth());
+  var mes        = comprobarDate(date.getMonth() + 1); //Month empieza por 0
   var fecha      = dia + "/" + mes + "/" + date.getFullYear();
-  var horas      = comprobarDate(date.getHours());
-  var minutos    = comprobarDate(date.getMinutes());
-  var hora       = horas + ":" + minutos;
-  date           = fecha + " - " + hora;
+  date           = fecha;
 
-  // Comprueba si los campos están completados
-  if ( !(nombre==="" || comentario==="" || email==="" ))
-    crearNuevoComentario(date, nombre, comentario);
+  // Comprueba que los campos estén rellenados
+  if ( !(nombre==="" || comentario==="" || email==="" )){
+    //Comprueba que el email es válido
+    if (validateEmail(email)){
 
-  // Devulve false para evitar que la página se refresque al hacer submit
+      //Para resetear el contenido del form si es valido
+      document.getElementById("nombre").value ="";
+      document.getElementById("comentario").value ="";
+      document.getElementById("email").value ="";
+
+      //Llama a la creacion del comentario
+      crearNuevoComentario(date, nombre, comentario);
+
+    }
+    else 
+      alert("Formato de email no válido.")
+  }
+    else
+      alert("Debes rellenar todos los campos.")
+
+      preventDefault() ;
   return false;
 }
 
 
-/**
- * Crea y añade el nuevo comentario a la sección de comentarios.
- *
- * @param  {String} fecha  Concatenación de fecha y hora
- * @param  {String} nombre Nombre del cliente
- * @param  {String} texto  Comentario introducido por el cliente
- * @return {void}
- */
-function crearNuevoComentario(fecha, nombre, texto){
-  // Variables auxiliares para crear nodos de texto
-  var text_node;
-  var parrafo;
+/* Comprueba la validez del email, source: https://stackoverflow.com/questions/46155/how-to-validate-an-email-address-in-javascript */
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
 
-  // Crear nuevos elementos
-  var nuevo_comentario = document.createElement("div");
-  nuevo_comentario.setAttribute("class", "comentario");
-  var fecha_nombre = document.createElement("div");
-  fecha_nombre.setAttribute("class", "comentario-fecha");
-  // Añadir fecha y autor a la sección comentario-fecha
-  parrafo = document.createElement("p");
-  text_node = document.createTextNode(fecha);
-  parrafo.appendChild(text_node);
-  fecha_nombre.appendChild(parrafo);
-  parrafo = document.createElement("p");
+/* Añade el nuevo comentario como append child del contenedor de comentarios, usando appendchilds y text nodes
+el propio comentario para aniadir los elementos de texto */
+function crearNuevoComentario(fecha, nombre, texto){
+  // Variable auxiliar para crear nodos de texto
+  var text_node;
+
+  var contenedor_comentario = document.createElement("div");
+  contenedor_comentario.setAttribute("id", "contenedor-comentario");
+
+  var autor = document.createElement("h3");
+  autor.setAttribute("id", "autor");
   text_node = document.createTextNode(nombre);
-  parrafo.appendChild(text_node);
-  fecha_nombre.appendChild(parrafo);
-  // Añadir la sección comentario-fecha al nuevo comentario
-  nuevo_comentario.appendChild(fecha_nombre);
-  // Crear cuerpo del comentario y añadirlo al nuevo comentario
-  var comentario = document.createElement("div");
-  comentario.setAttribute("class", "texto");
+  autor.appendChild(text_node);
+
+  var fecha_comentario = document.createElement("h3");
+  fecha_comentario.setAttribute("id", "fecha");
+  text_node = document.createTextNode(fecha);
+  fecha_comentario.appendChild(text_node);
+
+  var parrafo = document.createElement("p");
   text_node = document.createTextNode(texto);
-  comentario.appendChild(text_node);
-  nuevo_comentario.appendChild(comentario);
+  parrafo.appendChild(text_node);
+
+  contenedor_comentario.appendChild(autor);
+  contenedor_comentario.appendChild(fecha_comentario);
+  contenedor_comentario.appendChild(parrafo);
 
   // Recuperar comentarios anteriores y añadir el nuevo
-  var old_data  = document.getElementById("comentarios");
-  old_data.appendChild(nuevo_comentario);return false;
+  var desplegable  = document.getElementById("contenedor-comentarios");
+  desplegable.appendChild(contenedor_comentario);
+  return false;
 }
 
 
@@ -108,4 +114,4 @@ function revisarComentario(){
 
 document.getElementById("mi_boton").addEventListener("click", mostrarComentarios);
 document.getElementById("comentario").addEventListener("change", revisarComentario);
-document.getElementById("submit").addEventListener("submit", enviarComentario);
+document.getElementById("submit").addEventListener("click", enviarComentario);
