@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>GRANADAPROMO {% block mensaje %}{% endblock %}</title>
+    {% block style %}
+    <link rel="stylesheet" href="styles/style.css"/>
+    {% endblock %}
+    
+    <link rel="shortcut icon" type="image/x-icon" href="images/iconorayito.ico" />
+    <script src="https://use.fontawesome.com/5aee53bc5a.js"></script>
+          <link rel="stylesheet" type="text/css" href="css/style.css"/>
+          <script defer src="js/funciones.js"></script> 
+
+  </head>
+  <body>
+    <header>
+      {% block cabecera %}
+  </head>
+  <body>
+      <header id="cabecera">
+          <img alt="cabecera" src="images/cabecera.png"/>
+      </header>
+      <nav id="menu">
+          <ul>
+              <li class="active"><a href="index.php">Portada</a></li>
+              <li><a href="eventos-proximos.html">Eventos próximos</a></li>
+              <li><a href="patrocinadores.html">Patrocinadores</a></li>
+          </ul>
+      </nav>
+    </body>
+      {% endblock %}
+    </header>
+
+    {% block comentarios %}
+    
+    {% endblock %}
+
+    <main>
+      <div id ="main">
+      {% block central %}
+     
+      <aside>
+        <div id="comprar-tickets">
+            <h1>Comprar Tickets</h1>
+
+        </div>
+        <div id="redes-sociales">
+            <h1>Redes Sociales</h1>
+            <a id="btn-twitter" href="#"><i class="fa fa-twitter"></i></a>
+            <a id="btn-instagram" href="#"><i class="fa fa-instagram"></i></a>
+            <a id="btn-google" href="#"><i class="fa fa-google-plus "></i></a>
+        </div>
+        <div id="enlaces">
+            <h1>Enlaces de interés</h1>
+            <ul>
+                <li><a href="http://www.ugr.es/">Universidad de Granada</a></li>
+                <li><a href="http://etsiit.ugr.es/">Escuela Técnica Superior de Ingenierías Informática y de Telecomunicación</a></li>
+            </ul>
+        </div>
+      
+
+      </aside>
+
+      {% endblock %}
+
+  
+      </div>
+      {% block galeria %}
+    
+      {% endblock %}
+    </main>
+
+    
+  
+    <footer id="pie">
+      <div id="contacto">
+          <h1>Contacto</h1>
+          <ul>
+              <li><i class="fa fa-user"></i>Pedro Padilla Reyes, 3º B</li>
+              <li><i class="fa fa-envelope"></i><a href="mailto:pedropadilla@correo.ugr.es">pedropadilla@correo.ugr.es</a></li>
+          </ul>
+      </div>
+      <div id="copyright">
+          <p>Copyright ©. Todos los derechos reservados. Sitio creado con fines académicos (como alumno) por Pedro Padilla Reyes.</p>
+      </div>
+  </footer>
+  </body>
+</html>

@@ -4,12 +4,12 @@ var oculto = true;
 
 
 /* Array de palabras prohibidas */
-var bad_words = /profesor|maestro|caca|culo|covid|coronavirus|puto|puta|mierda|cabron/gi;
-
+//var bad_words = /profesor|maestro|caca|culo|covid|coronavirus|puto|puta|mierda|cabron/gi;
+bad_words = [];
 
 /* Muestra u oculta el desplegable de comentarios */
 function mostrarComentarios(){
-
+  aniadirProhibidas();
   var css = document.getElementById("desplegable");
 
   if(!oculto)
@@ -29,6 +29,20 @@ function comprobarDate(date){
   console.log(format_date);
   return format_date;
 }
+
+function aniadirProhibidas(){
+  var bloque = document.getElementById("prohibidas");
+
+  var inp = bloque.innerText;
+  var palabras = inp.split(' ');
+
+  for (i = 0; i < palabras.length; i++) {
+    bad_words.push(palabras[i].toUpperCase());
+    console.log(bad_words[i]);
+
+  }
+}
+
 
 /* Recoge la info enviada por el usuario y comprueba los datos antes de crear el comentario */
 function enviarComentario(){
@@ -107,9 +121,12 @@ function crearNuevoComentario(fecha, nombre, texto){
 
 
 /* Censura palabras del comentario que sean del array bad_words */
-function revisarComentario(){
+function revisarComentario(palabras){
   var comentario = document.getElementById("comentario");
-  comentario.value = comentario.value.replace(bad_words, "****");
+  for (i = 0; i < bad_words.length - 1; i++) {
+    comentario.value = comentario.value.replace(bad_words[i], "****");
+
+  }
 }
 
 document.getElementById("mi_boton").addEventListener("click", mostrarComentarios);

@@ -1,0 +1,101 @@
+{% extends "padre.html" %}
+
+  {% block style %}
+
+    {% if imprimir==1 %}
+    <link rel="stylesheet" href="styles/style_print.css"/>
+    {% endif %}
+
+    {% if imprimir==0 %}
+    {{parent()}}
+    {% endif %}
+
+  {% endblock %}
+
+
+  {% block mensaje %}
+  {{ evento.nombre }}
+
+  {% endblock %}
+  
+  {% block comentarios %}
+
+  <div id= "contenedor-desplegable">
+    <div id="prohibidas">{% for palabra in palabras %}{{palabra}} {% endfor %}</div>
+    <button id="mi_boton"><i class="fa fa-comment"></i> Comentarios</button>
+    <div id="desplegable">
+        <div id="contenedor-comentarios">
+
+          {% for comentario in evento.comentarios %}
+            <div id="contenedor-comentario">
+            <h3 id="autor">{{comentario.autor}}</h3>
+            <h3 id="fecha">{{comentario.fecha}}</h3>
+            <p> {{comentario.comentario}} </p>
+            </div>
+          {% endfor %}
+ 
+        <form onsubmit="return false">
+            <h2>Redactar <i class="fa fa-edit"></i></h2>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" placeholder="Harry Potter"><br>
+            <div id=contenedor-email>
+            <label for="email">E-mail:</label><br>
+            <input type="text" id="email" name="email" placeholder="harrypotter@hogwarts.com"><br><br>
+            </div>
+            <label for="comentario">Texto:</label><br>
+            <textarea id="comentario" name="comentario" rows="4" cols="50" onkeypress="revisarComentario({{palabras}})" placeholder="Mi campeón favorito, sin duda alguna Anivia, la criofenix. No tendrá mucho ataque, no tendrá mucha defensa... pero me encanta. Es muy difícil de controlar, sobre todo la Q, porque tienes que [...]"></textarea>
+            <input type="submit" id="submit" value="Enviar" onsubmit="return enviarComentario()">
+        </form> 
+    </div>
+    </div>
+  </div>
+  
+  {% endblock %}
+
+  {% block central %}
+  <div id="evento">
+    <h2> {{ evento.titulo }}</h2>
+    <h3> {{ evento.organizador }} </h3>
+     <h4> {{ evento.fecha }} </h4>
+     <div id="imagen1">
+       <img alt="imagen1" src="{{evento.imagenes[1].img}}"/>
+       <p>{{ evento.imagenes[1].desc }}</p>
+     </div>
+     {{ evento.descripcion }}
+     <p></p>
+     <div id = "imagen2">
+      <img alt=" " src="{{evento.imagenes[2].img}}"/>
+      <p> {{ evento.imagenes[2].desc }}</p>
+      </div>
+</div>
+
+  {{parent()}}
+  <aside>
+    <div id="mas-info">
+      <h1><a href="https://www.granadahoy.com/ocio/Goya-exposicion-Palacio-Congresos-Granada_0_1541546442.html">Mas información del evento <i class="fa fa-link"></i></h1>
+  </div>
+  <div id="imprimir">
+      <h1><a href="evento.php?ev={{evento.id}}&print=1">Imprimir <i class="fa fa-print"></i> </a></h1>
+  </div>
+  </aside>
+  {% endblock %}
+
+  {% block galeria %}
+    <div id = "galeria">
+
+    {% set var = 0 %}
+    {% for imagen in evento.imagenes %}
+      {% if var==3 %}
+        <h1>Galeria</h1>
+      {% endif %}
+
+      {% if var > 2 %}
+        <img alt=" " src="{{evento.imagenes[var].img}}"/>
+      {% endif %}
+      
+      {% set var=var+1 %}
+    {% endfor %}
+    </div>
+  {% endblock %}
+
+ 

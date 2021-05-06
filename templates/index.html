@@ -1,0 +1,49 @@
+{% extends "padre.html" %}
+
+  {% block mensaje %}
+  {{parent()}}
+
+    Página principal
+  {% endblock %}
+  
+  {% block central %}
+
+  <div id="content">
+      <section>
+            <table id="events">
+
+            {% set var = 0 %}
+            {% for evento in eventos %}
+                {% if var%3==0 %}
+                        <tr>
+                {% endif %}
+                <td><a href="evento.php?ev={{evento.id}}"><span>{{evento.nombre}}</span><img src="{{evento.imagenes[0].img}}"></td>
+                {% if var%3==2 %}
+                        </tr>
+                {% endif %}
+                {% set var=var+1 %}
+            {% endfor %}
+<!--
+                <tr>
+                      <td><a href="evento.php?ev=1"><span>{{nombre1}}</span><img src="{{img1}}"></td>
+                      <td><a href="evento.php?ev=2"><span>{{nombre2}}</span><img src="{{img2}}"></td>
+                      <td><a href="evento.php?ev=3"><span>{{nombre3}}</span><img src="{{img3}}"></td>
+                 </tr>
+                <tr>
+                      <td><a href="evento.php?ev=4"><span>{{nombre4}}</span><img src="{{img4}}"></td>
+                       <td><a href="evento.php?ev=5"><span>{{nombre5}}</span><img src="{{img5}}"></td>
+                       <td><a href="evento.php?ev=6"><span>{{nombre6}}</span><img src="{{img6}}"></td>
+                </tr>
+                <tr>
+                      <td><a href="evento.php?ev=7"><span>{{nombre7}}</span><img src="{{img7}}"></td>
+                      <td><a href="evento.php?ev=8"><span>{{nombre8}}</span><img src="{{img8}}"></td>
+                      <td><a href="evento.php?ev=9"><span>{{nombre9}}</span><img src="{{img9}}"></td>
+                </tr>
+-->
+
+            </table>
+       <section>
+  </div> <!-- end content -->
+
+  {{parent()}}
+  {% endblock %}
